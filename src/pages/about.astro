@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css'
+import Navigation from '../components/Navigation.astro';
 const pageTitle = 'about me'
 const identity = {
   firstName: "Sarah",
@@ -11,6 +13,7 @@ const happy = true;
 const finished = false;
 const goal = 3;
 
+const skillColor = 'pink'
 ---
 
 <html lang="en">
@@ -22,9 +25,7 @@ const goal = 3;
 		<title>{pageTitle}</title>
 	</head>
 	<body>
-        <a href="/">Home</a>
-        <a href="/about/">About</a>
-        <a href="/blog/">Blog</a>
+    <Navigation/>
 		<h1>{pageTitle}</h1>
   <h2>... and my new Astro site!</h2>
 
@@ -41,7 +42,7 @@ const goal = 3;
 </ul>
 <p>My skills are:</p>
 <ul>
-  {skills.map((skill) => <li>{skill}</li>)}
+  {skills.map((skill) => <li class="skills">{skill}</li>)}
 </ul>
 
 {happy && <p>I am happy to be learning astro</p> }
@@ -49,3 +50,16 @@ const goal = 3;
 {goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days</p>}
 	</body>
 </html>
+
+
+<style define:vars={{skillColor}}>
+	body{
+		background: rgb(25, 0, 25);
+		color:white;
+	}
+	
+  .skills{
+    color:var(--skillColor);
+    font-weight: bold;
+  }
+</style>
