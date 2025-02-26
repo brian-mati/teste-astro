@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css'
 import Navigation from '../components/Navigation.astro'
+import Footer from '../components/Footer.astro'
 const pageTitle = 'My Astro Learning Blog'
 
 const links = ["/posts/posts-1/","/posts/posts-2/","/posts/posts-3/"]
@@ -21,8 +22,9 @@ const links = ["/posts/posts-1/","/posts/posts-2/","/posts/posts-3/"]
         <p>This is where I will post about my journey learning Astro.</p>
 
         <ul>
-            {links.map((link) => <li><a href={link[0]}></a></li>)}
+            {links.map((link) => <li><a href={link}>{links}</a></li>)}
         </ul>
+		<Footer/>
 	</body>
 </html>
 
